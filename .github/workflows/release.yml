@@ -43,6 +43,9 @@ jobs:
       - name: Get dependencies
         run: go get ./...
 
+      - name: Generate embedded resources
+        run: go generate -x ./server/...
+
       - name: Build binary
         env:
           GOOS: ${{ matrix.goos }}
