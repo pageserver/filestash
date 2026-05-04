@@ -31,6 +31,11 @@ jobs:
           go-version: '1.22'
           cache: true
 
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libjpeg-dev libtiff-dev libpng-dev libwebp-dev libraw-dev libheif-dev libgif-dev libvips-dev gcc
+
       - name: Get dependencies
         run: go get ./...
 
@@ -41,7 +46,7 @@ jobs:
         env:
           GOOS: ${{ matrix.goos }}
           GOARCH: ${{ matrix.goarch }}
-          CGO_ENABLED: 0
+          CGO_ENABLED: 1
         run: |
           go build --tags "fts5" -ldflags="-s -w" -o ${{ matrix.output }} cmd/main.go
 
