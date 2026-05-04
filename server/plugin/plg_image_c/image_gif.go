@@ -1,3 +1,5 @@
+//go:build linux || freebsd
+
 package plg_image_c
 
 // #include "image_gif.h"

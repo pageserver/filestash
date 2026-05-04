@@ -1,3 +1,5 @@
+//go:build linux
+
 package plg_image_light
 
 // #cgo CFLAGS: -I./deps/src

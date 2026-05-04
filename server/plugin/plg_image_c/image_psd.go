@@ -1,3 +1,5 @@
+//go:build linux || freebsd
+
 //go:generate go run image_psd_generator.go
 
 package plg_image_c
